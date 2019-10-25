@@ -1,6 +1,6 @@
 <?php
-
-$mysqli = new mysqli("database_URL", "my_user", "my_password", "database_name");
+$myPass = "seishae4";
+$mysqli = new mysqli("mysql.eecs.ku.edu", "msch179", $myPass, "malena");
 
 /* check connection */
 if ($mysqli->connect_errno) {
@@ -8,18 +8,19 @@ if ($mysqli->connect_errno) {
     exit();
 }
 
-$query = "SELECT Name, CountryCode FROM City ORDER by ID DESC LIMIT 50,5";
+$data = "SELECT userID FROM Users";
+$result = $mysqli->query($data);
+$user = $_POST["id"];
 
-if ($result = $mysqli->query($query)) {
-
-    /* fetch associative array */
-    while ($row = $result->fetch_assoc()) {
-        printf ("%s (%s)\n", $row["Name"], $row["CountryCode"]);
-    }
-
-    /* free result set */
-    $result->free();
+if ($resault->num_rows >0)
+{
+  echo "Error, user already exists in database";
 }
+else
+{
+  $sql = "INSERT INTO Users (userID) VALUES ($user)";
+}
+
 
 /* close connection */
 $mysqli->close();
