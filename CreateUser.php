@@ -12,7 +12,7 @@ $data = "SELECT userID FROM Users";
 $result = $mysqli->query($data);
 $user = $_POST["id"];
 
-if ($resault->num_rows >0)
+if ($result->num_rows >0)
 {
   echo "Error, user already exists in database";
 }
