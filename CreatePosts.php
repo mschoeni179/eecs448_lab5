@@ -28,6 +28,10 @@ if ($result->num_rows >0)
     {
         $sql = "INSERT INTO Posts (postID, content, author_id) VALUES ($postID, $post, $user)";
     }
+    else
+    {
+    echo "Error, user not found\n";
+    }
 }
 else
 {
