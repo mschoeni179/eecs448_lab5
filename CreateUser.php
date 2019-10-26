@@ -14,7 +14,13 @@ $user = $_POST["id"];
 
 if ($result->num_rows >0)
 {
-  echo "Error, user already exists in database";
+  while($row = mysqli_fetch_assoc($result))
+  {
+        if ($row[userID] == $user)
+        {
+            echo "Error, user already inserted into database\n";
+        }
+  }
 }
 else
 {
