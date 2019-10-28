@@ -10,27 +10,19 @@ if ($mysqli->connect_errno) {
 
 $data = "SELECT userID FROM Users";
 $result = $mysqli->query($data);
-$user = $_POST["id"];
-$flag = false;
 
+echo "<table><tr><th>Username</th></tr>";
 if ($result->num_rows >0)
 {
-  while($row = mysqli_fetch_assoc($result))
-  {
-        if ($row["userID"] == $user)
-        {
-            echo "Error, user already inserted into database\n";
-            $flag = true;
-        }
-  }
-  if (!$flag)
-  {
-    $sql = "INSERT INTO Users (userID) VALUES ($user)";
-  }
+    while($row = mysqli_fetch_assoc($result))
+    {
+        echo "<tr><td>" . $row["userID"] . "</td></tr>";
+    }
+    echo "</table>";
 }
 else
 {
-  $sql = "INSERT INTO Users (userID) VALUES ($user)";
+    echo "Error, user not found\n";
 }
 
 
