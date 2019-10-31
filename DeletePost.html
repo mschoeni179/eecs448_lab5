@@ -16,17 +16,21 @@
         exit();
     }
 
-    $data = "SELECT * FROM Users";
+    $data = "SELECT * FROM Posts";
     $result = $mysqli->query($data);
 
-    echo "<table><tr><th>Username</th></tr>";
+    echo "<table><tr><th>Delete?</th><th>Username</th><th>Posts</th></tr>";
     if ($result->num_rows >0)
     {
         while($row = mysqli_fetch_assoc($result))
         {
-            echo "<tr><td>" . $row["userID"] . "</td></tr>";
+            $postID = $row["postID"]
+            echo "<td><input type='checkbox' name='delete' value='$postID'></td>";
+            echo "<tr><td>" . $row['author_id'] . "</td></tr>";
+            echo "<tr><td>" . $row["content"] . "</td></tr>"
         }
         echo "</table>";
+        $result->free();
     }
     $mysqli->close();
 ?>
