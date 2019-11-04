@@ -1,6 +1,6 @@
 <?php
     $myPass = "seishae4";
-    $mysqli = new mysqli("mysql.eecs.ku.edu", "msch179", $myPass, "malena");
+    $mysqli = new mysqli("mysql.eecs.ku.edu", "msch179", $myPass, "msch179");
 
     if ($mysqli->connect_errno) {
         printf("Connect failed: %s\n", $mysqli->connect_error);
@@ -17,7 +17,7 @@
             echo "<option>" . $row["userID"] . "</option>";
         }
         echo "<input type='submit' name='submit' value='Submit'>";
-        echo "</select> ";    
+        echo "</select> ";
     }
     else
     {
