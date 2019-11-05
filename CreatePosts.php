@@ -27,7 +27,7 @@ while($row = $result->fetch_assoc())
     else
     {
     echo "Error, user not found\n";
-    echo "<a href='AdminHome.html'>Back to Admin Home </a>";
+    echo "<br><a href='AdminHome.html'>Back to Admin Home </a>";
     }
 
 /* close connection */

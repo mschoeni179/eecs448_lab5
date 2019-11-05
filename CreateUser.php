@@ -20,7 +20,7 @@ $sql = "INSERT INTO Users (userID) VALUES ('$user');";
     } 
 
 
-    echo "<a href='AdminHome.html'>Back to Admin Home </a>";
+    echo "<br><a href='AdminHome.html'>Back to Admin Home </a>";
   
 
 

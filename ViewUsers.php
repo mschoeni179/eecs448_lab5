@@ -18,13 +18,12 @@ if ($result)
     {
         echo "<tr><td> " . $row["userID"] . "</td></tr>";
     }
-    echo "<input type='submit' name='submit' value='Submit'>";
-    echo "</select> ";
+    echo "</table> ";
 }
 else
 {
     echo "No user found";
-    echo "<a href='AdminHome.html'>Back to Admin Home </a>";
+    echo "<br><a href='AdminHome.html'>Back to Admin Home </a>";
 }
 $result->free();
 

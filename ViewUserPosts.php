@@ -1,4 +1,33 @@
 <?php
+
+function getUser() 
+{
+    $myPass = "seishae4";
+    $mysqli = new mysqli("mysql.eecs.ku.edu", "msch179", $myPass, "msch179");
+
+    if ($mysqli->connect_errno) {
+        printf("Connect failed: %s\n", $mysqli->connect_error);
+        exit();
+    }
+    echo "<select>";
+    $data = "SELECT * FROM Users;";
+    $result = $mysqli->query($data);
+    echo "<select name='users'>";
+    if ($result)
+    {
+        while($row = $result->fetch_assoc())
+        {
+            echo "<option> value='" . $row["userID"] ."'" . "</option>";
+        }
+        echo "<input type='submit' name='submit' value='Submit'>";
+        echo "</select> ";
+    }
+    else
+    {
+        echo "No user found";
+    }
+    $mysqli->close();
+}
     $myPass = "seishae4";
     $mysqli = new mysqli("mysql.eecs.ku.edu", "msch179", $myPass, "msch179");
 
@@ -26,7 +55,7 @@
         echo "No user posts found";
     }
 
-    echo "<a href='AdminHome.html'>Back to Admin Home </a>";
+    echo "<br><a href='AdminHome.html'>Back to Admin Home </a>";
 
     $mysqli->close();
 
