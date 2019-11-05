@@ -8,46 +8,19 @@ if ($mysqli->connect_errno) {
     exit();
 }
 
-$data = "SELECT userID FROM Users";
-$result = $mysqli->query($data);
 $user = $_POST["id"];
 $flag = false;
 
-if ($result->num_rows >0)
-{
-  while($row = mysqli_fetch_assoc($result))
-  {
-        if ($row["userID"] == $user)
-        {
-            echo "Error, user already inserted into database\n";
-            $flag = true;
-        }
-  }
-  if ($flag === FALSE)
-  {
-    $sql = "INSERT INTO Users (userID) VALUES ($user)";
+$sql = "INSERT INTO Users (userID) VALUES ($user);";
     if ($mysqli->query($sql) === TRUE)
     {
       echo "User created successfully";
     }
     else
     {
-      echo "Error, user not created";
+      echo "Error, user not created. User already exists";
     } 
-  }
-}
-else
-{
-  $sql = "INSERT INTO Users (userID) VALUES ($user)";
-  if ($mysqli->query($sql) === TRUE)
-  {
-    echo "User created successfully";
-  }
-  else
-  {
-    echo "Error, user not created";
-  }
-}
+  
 
 
 /* close connection */
