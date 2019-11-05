@@ -12,17 +12,18 @@ $data = "SELECT userID FROM Users";
 $result = $mysqli->query($data);
 
 echo "<table style ='border: 1px solid black'><tr><th>Username</th></tr>";
-if ($result->num_rows >0)
+if ($result)
 {
-    while($row = mysqli_fetch_assoc($result))
+    while($row = $result->fetch_assoc())
     {
-        echo "<tr><td>" . $row["userID"] . "</td></tr>";
+        echo "<tr><td> " . $row["userID"] . "</td></tr>";
     }
-    echo "</table>";
+    echo "<input type='submit' name='submit' value='Submit'>";
+    echo "</select> ";
 }
 else
 {
-    echo "Error, user not found\n";
+    echo "No user found";
 }
 $result->free();
 
