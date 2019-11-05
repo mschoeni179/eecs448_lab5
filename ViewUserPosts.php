@@ -9,18 +9,14 @@ function getUser()
         printf("Connect failed: %s\n", $mysqli->connect_error);
         exit();
     }
-    echo "<select>";
     $data = "SELECT * FROM Users;";
     $result = $mysqli->query($data);
-    echo "<select name='users'>";
     if ($result)
     {
         while($row = $result->fetch_assoc())
         {
             echo "<option> value='" . $row["userID"] ."'" . "</option>";
         }
-        echo "<input type='submit' name='submit' value='Submit'>";
-        echo "</select> ";
     }
     else
     {
@@ -28,6 +24,10 @@ function getUser()
     }
     $mysqli->close();
 }
+
+
+
+
     $myPass = "seishae4";
     $mysqli = new mysqli("mysql.eecs.ku.edu", "msch179", $myPass, "msch179");
 
@@ -35,7 +35,7 @@ function getUser()
         printf("Connect failed: %s\n", $mysqli->connect_error);
         exit();
     }
-    $users = $_POST["users"];
+    $users = $_POST["user"];
     $data = "SELECT * FROM Posts WHERE author_id='$users';";
     $result = $mysqli->query($data);
     echo "Showing table of posts made by " . $users . "<br>";
