@@ -11,7 +11,7 @@ if ($mysqli->connect_errno) {
 $data = "SELECT userID FROM Users";
 $result = $mysqli->query($data);
 
-echo "<table><tr><th>Username</th></tr>";
+echo "<table style ='border: 1px'><tr><th>Username</th></tr>";
 if ($result->num_rows >0)
 {
     while($row = mysqli_fetch_assoc($result))

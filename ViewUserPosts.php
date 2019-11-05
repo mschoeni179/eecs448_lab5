@@ -9,7 +9,7 @@
 
     $data = "SELECT userID FROM Users";
     $result = $mysqli->query($data);
-    echo "<table>";
+    echo "<table style='border: 1px'>";
     if ($result->num_rows >0)
     {
         while($row = mysqli_fetch_assoc($result))
