@@ -16,14 +16,16 @@
         exit();
         }
     $data = "SELECT userID FROM Users";
-
-        if ($result = $mysqli->query($data))
-        {
-            while ($row = $result->fetch_assoc())
-            {
-                echo '<option value="'.$row['userID'].'">'.$row['userID'].'</option>';
-            }
+    if ($result = $mysqli->query($query1)) {
+        while ($row = $result->fetch_assoc()) {
+                echo "<option>".$row["userID"]."</option>";
         }
+        
+        $result->free();
+    }	
+        
+    echo "</select>";
+        
     ?>
     </select>
 
