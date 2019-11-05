@@ -6,21 +6,27 @@
         printf("Connect failed: %s\n", $mysqli->connect_error);
         exit();
     }
-
-    $data = "SELECT userID FROM Users";
+    $users = $_POST["users"];
+    $data = "SELECT * FROM Posts WHERE author_id='$users';";
     $result = $mysqli->query($data);
+    echo "Showing table of posts made by " . $users . "<br>";
     echo "<table style='border: 1px'>";
-    if ($result->num_rows >0)
+    echo "<tr><td>PostID</td><td><td>Posts</td></tr>";
+    if ($result)
     {
-        while($row = mysqli_fetch_assoc($result))
-        {
-            echo "<option>" . $row["userID"] . "</option>";
-        }
-        echo "<input type='submit' name='submit' value='Submit'>";
-        echo "</select> ";
+        while($row = $result->fetch_assoc())
+		{
+			echo "<tr><td>" . $row["post_id"] . "</td><td>" . $row["content"] . "</td></tr>";
+		}
+        echo "</table> ";
+        $result->free();
     }
     else
     {
-        echo "Error, user not found\n";
+        echo "No user posts found";
     }
+
+    $mysqli->close();
+
+    
 ?>
