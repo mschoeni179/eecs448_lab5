@@ -17,14 +17,14 @@
       echo "<table border='1'><tr><th>PostID </th><th>Post </th></tr>";
         while($row = $result->fetch_assoc())
 		{
-			echo "<tr><td>" . $row["post_id"] . "</td><td>" . $row["content"] . "</td></tr>";
+			echo "<tr><td>" . $row["postID"] . "</td><td>" . $row["content"] . "</td></tr>";
 		}
         echo "</table><br><br> ";
         $result->free();
     }
     else
     {
-        echo "No user posts found";
+        echo "No user found";
     }
 
     echo "<br><a href='AdminHome.html'>Back to Admin Home </a>";

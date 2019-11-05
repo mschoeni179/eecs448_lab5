@@ -5,7 +5,7 @@
 <body>
 
     <h2 style="align-content: center"> Select user's post(s) from the table below that you want to Delete</h2>
-    <form name="users" action="DeletePost.php" method="post"></form>
+    <form name="users" action="DeletePost.php" method="post">
     <?php
     $myPass = "seishae4";
     $mysqli = new mysqli("mysql.eecs.ku.edu", "msch179", $myPass, "msch179");
@@ -17,11 +17,12 @@
 
     $data = "SELECT * FROM Posts;";
     $result = $mysqli->query($data);
-    echo "<table><tr><th>Delete?</th><th>Username</th><th>Posts</th></tr>";
+    echo "<table border='1'><tr><th>Delete?</th><th>PostID</th><th>Username</th><th>Posts</th></tr>";
     while($row = mysqli_fetch_assoc($result))
     {
         $postID = $row["postID"];
-        echo "<tr><td><input type='checkbox' name='delete' value='$postID'></td>";
+        echo "<tr><td><input type='checkbox' name='delete[]' value='$postID'></td>";
+        echo "<td>" . $row["postID"] . "</td>";
         echo "<td>" . $row['author_id'] . "</td>";
         echo "<td>" . $row["content"] . "</td></tr>";
     }

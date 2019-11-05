@@ -11,7 +11,7 @@ if ($mysqli->connect_errno) {
 $data = "SELECT userID FROM Users";
 $result = $mysqli->query($data);
 
-echo "<table style ='border: 1px solid black'><tr><th>Username</th></tr>";
+echo "<table border='1' style ='border: 1px solid black'><tr><th>Username</th></tr>";
 if ($result)
 {
     while($row = $result->fetch_assoc())

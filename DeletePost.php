@@ -7,27 +7,18 @@ if ($mysqli->connect_errno) {
     printf("Connect failed: %s\n", $mysqli->connect_error);
     exit();
 }
+$query = "SELECT postID FROM Posts ORDER BY postID;";
+$toDelete = $_POST['delete'];
 
-$delete = 0;
-$query = "SELECT post_id FROM Posts ORDER BY post_id;";
-$index = 0;
-if ($result = $mysqli->query($query))
+foreach ($toDelete as $key )
 {
-  while ($row = $result->fetch_assoc())
+  $data = "DELETE FROM Posts WHERE postID='$key';";
+  if ($result = $mysqli->query($data))
   {
-    $index +=1;
-    $delete=$row[post_id];
-    $nextQuery = "DELETE FROM Posts WHERE post_id='".$delete."'";
-    if(isset($_POST["post".$index.""]))
-    {
-      $mysqli->query($nextQuery);
-      echo "Post ID: '".$delete."' was deleted.<br>";
-      }
+    echo "The post with an ID of " . $key . " has been successfully deleted<br><br>";
   }
-  $result->free();
 }
+echo "<br><a href='AdminHome.html'>Back to Admin Home </a>";
 $mysqli->close();
-
-//need stuff to get the checkboxes from html page but then
 
   ?>
