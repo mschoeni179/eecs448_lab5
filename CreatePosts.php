@@ -8,13 +8,13 @@ if ($mysqli->connect_errno) {
 }
 $user = $_POST["id"];
 $post = $_POST["post"];
-$data = "SELECT user_id FROM Users WHERE user_id='" . "$user" . "';";
+$data = "SELECT userID FROM Users WHERE userID='$user';";
 $flag = false;
 if($result = $mysqli->query($data))
 {
 	if($row = $result->fetch_assoc())
 	{
-		if($row["user_id"] == $user)
+		if($row["userID"] == $user)
 		{
 			$flag = true;
 		}
