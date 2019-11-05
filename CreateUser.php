@@ -9,16 +9,14 @@ if ($mysqli->connect_errno) {
 }
 
 $user = $_POST["id"];
-$flag = false;
-
-$sql = "INSERT INTO Users (userID) VALUES ($user);";
+$sql = "INSERT INTO Users (userID) VALUES ('$user');";
     if ($mysqli->query($sql) === TRUE)
     {
-      echo "User created successfully";
+      echo "<p>User created successfully</p>";
     }
     else
     {
-      echo "Error, user not created. User already exists";
+      echo "<p>Error, user not created. User already exists</p>";
     } 
   
 
