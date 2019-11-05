@@ -26,13 +26,27 @@ if ($result->num_rows >0)
   if (!$flag)
   {
     $sql = "INSERT INTO Users (userID) VALUES ($user)";
-    echo "User created";
+    if ($mysqli->query($sql) === TRUE)
+    {
+      echo "User created successfully";
+    }
+    else
+    {
+      echo "Error, user not created";
+    } 
   }
 }
 else
 {
   $sql = "INSERT INTO Users (userID) VALUES ($user)";
-  echo "User created";
+  if ($mysqli->query($sql) === TRUE)
+  {
+    echo "User created successfully";
+  }
+  else
+  {
+    echo "Error, user not created";
+  }
 }
 
 
