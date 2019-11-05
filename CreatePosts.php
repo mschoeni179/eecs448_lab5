@@ -10,12 +10,12 @@ $user = $_POST["id"];
 $post = $_POST["post"];
 $data = "SELECT userID FROM Users;";
 $result = $mysqli->query($data);
-$flag = false;
+$flag = TRUE;
 while($row = $result->fetch_assoc())
     {
         if ($row[userID] == $user)
         {
-            $flag = true;
+            $flag = FALSE;
         }
     }
     if ($flag)
