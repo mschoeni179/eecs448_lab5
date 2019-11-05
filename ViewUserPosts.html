@@ -2,8 +2,8 @@
     <head>
     </head>
 <body>
-    <h2 style="align-content: center"> Select a user from the drop down list below and click submit to view all posts made by this user</h2>
-    <form name="users" action="ViewUserPosts.php" method="post" id="posts"></form>
+    <h2>Select a user from the drop down list below and click submit to view all posts made by this user</h2>
+    <form action="ViewUserPosts.php" method="post" >
     <select name="user" id="user" required>
         <?php
         $myPass = "seishae4";
@@ -17,14 +17,15 @@
     if ($result = $mysqli->query($data)) {
         while ($row = $result->fetch_assoc()) {
 
-                echo '<option>' . $row["userID"]. '</option>';
+              echo "<option>" . $row["userID"] .  "</option>";
         }
+        echo "</select>";
 
         $result->free();
     }
         $mysqli->close();
     ?>
-    </select>
+
 
 <input type='submit' name='submit' value='Submit'>
 </form>

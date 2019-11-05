@@ -9,12 +9,12 @@ if ($mysqli->connect_errno) {
 }
 
 $delete = 0;
-$query = "SELECT post_id FROM Posts ORDER BY post_id";
+$query = "SELECT post_id FROM Posts ORDER BY post_id;";
 $index = 0;
 if ($result = $mysqli->query($query))
 {
-  while ($row = $result->fetch_assoc()) 
-  { 
+  while ($row = $result->fetch_assoc())
+  {
     $index +=1;
     $delete=$row[post_id];
     $nextQuery = "DELETE FROM Posts WHERE post_id='".$delete."'";

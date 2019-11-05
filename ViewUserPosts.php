@@ -1,21 +1,20 @@
 <?php
-
     $myPass = "seishae4";
     $mysqli = new mysqli("mysql.eecs.ku.edu", "msch179", $myPass, "msch179");
 
-    if ($mysqli->connect_errno) {
+    if ($mysqli->connect_errno)
+    {
         printf("Connect failed: %s\n", $mysqli->connect_error);
         exit();
     }
 
-    if(isset($_POST['submit']))
+      $user = $_POST['user'];
+
+    $data = "SELECT * FROM Posts WHERE author_id='$user';";
+    echo "Displaying posts from user " . $user . "<br><br><br>";
+    if ($result = $mysqli->query($data))
     {
-      $users = $_POST["user"];
-    }
-    $data = "SELECT * FROM Posts WHERE author_id='$users';";
-    $result = $mysqli->query($data);
-    if ($result)
-    {
+      echo "<table border='1'><tr><th>PostID </th><th>Post </th></tr>";
         while($row = $result->fetch_assoc())
 		{
 			echo "<tr><td>" . $row["post_id"] . "</td><td>" . $row["content"] . "</td></tr>";
