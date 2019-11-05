@@ -7,7 +7,6 @@
     <h2 style="align-content: center"> Select user's post(s) from the table below that you want to DeletePost</h2>
     <form name="users" action="DeletePost.php" method="post"></form>
     <?php
-    echo "<select>";
     $myPass = "seishae4";
     $mysqli = new mysqli("mysql.eecs.ku.edu", "msch179", $myPass, "msch179");
 
@@ -18,7 +17,6 @@
 
     $data = "SELECT * FROM Posts";
     $result = $mysqli->query($data);
-
     echo "<table><tr><th>Delete?</th><th>Username</th><th>Posts</th></tr>";
     while($row = mysqli_fetch_assoc($result))        
     {
