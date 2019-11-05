@@ -15,7 +15,7 @@ function getUser()
     {
         while($row = $result->fetch_assoc())
         {
-            echo "<option> value='" . $row["userID"] ."'" . "</option>";
+            echo "<option value=" . $row['user_id'] . ">"  . $row['user_id'] . "</option>";
         }
     }
     else
