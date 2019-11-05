@@ -1,11 +1,9 @@
 <html>
     <head>
-            <?php include 'ViewUserPosts.php' ?>
     </head>
 <body>
-
     <h2 style="align-content: center"> Select a user from the drop down list below and click submit to view all posts made by this user</h2>
-    <form name="users" action="ViewUserPosts.php" method="post"></form>
+    <form name="users" action="ViewUserPosts.php" method="post" id="posts"></form>
     <select name="user" id="user" required>
         <?php
         $myPass = "seishae4";
@@ -15,22 +13,21 @@
         printf("Connect failed: %s\n", $mysqli->connect_error);
         exit();
         }
-    $data = "SELECT userID FROM Users";
-    if ($result = $mysqli->query($query1)) {
+    $data = "SELECT userID FROM Users;";
+    if ($result = $mysqli->query($data)) {
         while ($row = $result->fetch_assoc()) {
-                echo "<option>";
-                echo $row["userID"];
-                echo "</option>";
+
+                echo '<option>' . $row["userID"]. '</option>';
         }
-        
+
         $result->free();
-    }	
+    }
         $mysqli->close();
     ?>
     </select>
 
 <input type='submit' name='submit' value='Submit'>
 </form>
-  
+
 </body>
 </html>

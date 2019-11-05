@@ -15,15 +15,15 @@
         exit();
     }
 
-    $data = "SELECT * FROM Posts";
+    $data = "SELECT * FROM Posts;";
     $result = $mysqli->query($data);
     echo "<table><tr><th>Delete?</th><th>Username</th><th>Posts</th></tr>";
-    while($row = mysqli_fetch_assoc($result))        
+    while($row = mysqli_fetch_assoc($result))
     {
-        $postID = $row["postID"]
+        $postID = $row["postID"];
         echo "<tr><td><input type='checkbox' name='delete' value='$postID'></td>";
         echo "<td>" . $row['author_id'] . "</td>";
-        echo "<td>" . $row["content"] . "</td></tr>"
+        echo "<td>" . $row["content"] . "</td></tr>";
     }
     echo "</table>";
     $result->free();
@@ -31,6 +31,6 @@
 ?>
 <input type='submit' name='submit' value='Submit'>
 </form>
-  
+
 </body>
 </html>
