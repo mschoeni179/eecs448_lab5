@@ -24,6 +24,7 @@ if ($result)
 else
 {
     echo "No user found";
+    echo "<a href='AdminHome.html'>Back to Admin Home </a>";
 }
 $result->free();
 

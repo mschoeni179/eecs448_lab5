@@ -18,13 +18,15 @@
 		{
 			echo "<tr><td>" . $row["post_id"] . "</td><td>" . $row["content"] . "</td></tr>";
 		}
-        echo "</table> ";
+        echo "</table><br><br> ";
         $result->free();
     }
     else
     {
         echo "No user posts found";
     }
+
+    echo "<a href='AdminHome.html'>Back to Admin Home </a>";
 
     $mysqli->close();
 

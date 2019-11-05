@@ -18,6 +18,9 @@ $sql = "INSERT INTO Users (userID) VALUES ('$user');";
     {
       echo "<p>Error, user not created. User already exists</p>";
     } 
+
+
+    echo "<a href='AdminHome.html'>Back to Admin Home </a>";
   
 
 
