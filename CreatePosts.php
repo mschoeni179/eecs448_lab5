@@ -23,7 +23,7 @@ if ($result->num_rows >0)
     }
     if ($flag)
     {
-        $sql = "INSERT INTO Posts (postID, content, author_id) VALUES ($postID, $post, $user)";
+        $sql = "INSERT INTO Posts (content, author_id) VALUES ($post, $user)";
     }
     else
     {

@@ -26,11 +26,13 @@ if ($result->num_rows >0)
   if (!$flag)
   {
     $sql = "INSERT INTO Users (userID) VALUES ($user)";
+    echo "User created";
   }
 }
 else
 {
   $sql = "INSERT INTO Users (userID) VALUES ($user)";
+  echo "User created";
 }
 
 
