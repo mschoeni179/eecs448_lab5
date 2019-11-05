@@ -18,14 +18,12 @@
     $data = "SELECT userID FROM Users";
     if ($result = $mysqli->query($query1)) {
         while ($row = $result->fetch_assoc()) {
-                echo "<option>".$row["userID"]."</option>";
+                echo "<option>". $row["userID"]. "</option>";
         }
         
         $result->free();
     }	
-        
-    echo "</select>";
-        
+        $mysqli->close();
     ?>
     </select>
 

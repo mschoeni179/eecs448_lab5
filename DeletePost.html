@@ -9,7 +9,7 @@
     <?php
     echo "<select>";
     $myPass = "seishae4";
-    $mysqli = new mysqli("mysql.eecs.ku.edu", "msch179", $myPass, "malena");
+    $mysqli = new mysqli("mysql.eecs.ku.edu", "msch179", $myPass, "msch179");
 
     if ($mysqli->connect_errno) {
         printf("Connect failed: %s\n", $mysqli->connect_error);
@@ -23,9 +23,9 @@
     while($row = mysqli_fetch_assoc($result))        
     {
         $postID = $row["postID"]
-        echo "<td><input type='checkbox' name='delete' value='$postID'></td>";
-        echo "<tr><td>" . $row['author_id'] . "</td></tr>";
-        echo "<tr><td>" . $row["content"] . "</td></tr>"
+        echo "<tr><td><input type='checkbox' name='delete' value='$postID'></td>";
+        echo "<td>" . $row['author_id'] . "</td>";
+        echo "<td>" . $row["content"] . "</td></tr>"
     }
     echo "</table>";
     $result->free();

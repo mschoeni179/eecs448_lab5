@@ -9,7 +9,7 @@ function getUser()
         printf("Connect failed: %s\n", $mysqli->connect_error);
         exit();
     }
-    $data = "SELECT * FROM Users;";
+    $data = "SELECT userID FROM Users;";
     $result = $mysqli->query($data);
     if ($result)
     {
