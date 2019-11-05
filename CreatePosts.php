@@ -20,7 +20,7 @@ while($row = $result->fetch_assoc())
     }
     if ($flag)
     {
-        $sql = "INSERT INTO Posts (content, author_id) VALUES ($post, $user);";
+        $sql = "INSERT INTO Posts(content, author_id) VALUES ('$post', '$user');";
         $query = $mysqli->query($sql);
         if ($query)
         {
