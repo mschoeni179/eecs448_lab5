@@ -8,18 +8,17 @@ if ($mysqli->connect_errno) {
     exit();
 }
 
-$delete = 1;
+$delete = 0;
 $query = "SELECT post_id FROM Posts ORDER BY post_id";
-$totalPosts = 0;
-$nextQuery = "DELETE FROM Posts WHERE post_id='".$delete."'";
+$index = 0;
 if ($result = $mysqli->query($query))
 {
   while ($row = $result->fetch_assoc()) 
   { 
-    $totalPosts +=1;
+    $index +=1;
     $delete=$row[post_id];
     $nextQuery = "DELETE FROM Posts WHERE post_id='".$delete."'";
-      if(isset($_POST["post".$totalPosts.""]))
+    if(isset($_POST["post".$index.""]))
     {
       $mysqli->query($nextQuery);
       echo "Post ID: '".$delete."' was deleted.<br>";
