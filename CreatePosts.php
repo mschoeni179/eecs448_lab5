@@ -21,8 +21,18 @@ while($row = $result->fetch_assoc())
     if ($flag)
     {
         $sql = "INSERT INTO Posts (content, author_id) VALUES ($post, $user);";
-        echo "Post created";
-        echo "<a href='AdminHome.html'>Back to Admin Home </a>";
+        $query = $mysqli->query($sql);
+        if ($query)
+        {
+            echo "Post created";
+            echo "<br><a href='AdminHome.html'>Back to Admin Home </a>";
+        }
+        else
+        {
+            echo "An error occurred. <br>";
+            echo "<br><a href='AdminHome.html'>Back to Admin Home </a>";
+        }
+        
     }
     else
     {
