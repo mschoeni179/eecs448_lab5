@@ -15,13 +15,13 @@
         printf("Connect failed: %s\n", $mysqli->connect_error);
         exit();
         }
-    $data = "SELECT * FROM Users;";
+    $data = "SELECT userID FROM Users;";
     $result = $mysqli->query($data);
     if ($result)
     {
         while($row = $result->fetch_assoc())
         {
-            echo '<option value="' . $row["userID"] . '">' . $row["userID"] . '</option>';
+            echo '<option value="'.$row[userID].'">'.$row[userID].'</option>';
         }
     }
     else
