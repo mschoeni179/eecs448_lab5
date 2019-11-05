@@ -18,7 +18,9 @@
     $data = "SELECT userID FROM Users";
     if ($result = $mysqli->query($query1)) {
         while ($row = $result->fetch_assoc()) {
-                echo "<option>". $row["userID"]. "</option>";
+                echo "<option>";
+                echo $row["userID"];
+                echo "</option>";
         }
         
         $result->free();
