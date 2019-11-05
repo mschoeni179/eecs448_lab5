@@ -8,13 +8,10 @@ if ($mysqli->connect_errno) {
 }
 $user = $_POST["id"];
 $post = $_POST["post"];
-$data = "SELECT userID FROM Users";
+$data = "SELECT userID FROM Users;";
 $result = $mysqli->query($data);
 $flag = false;
-$postID = $user*2+13;
-if ($result->num_rows >0)
-{
-    while($row = mysqli_fetch_assoc($result))
+while($row = mysqli_fetch_assoc($result))
     {
         if ($row[userID] == $user)
         {
@@ -23,17 +20,13 @@ if ($result->num_rows >0)
     }
     if ($flag)
     {
-        $sql = "INSERT INTO Posts (content, author_id) VALUES ($post, $user)";
+        $sql = "INSERT INTO Posts (content, author_id) VALUES ($post, $user);";
     }
     else
     {
     echo "Error, user not found\n";
     }
-}
-else
-{
-    echo "Error, user not found\n";
-}
+
 /* close connection */
 $mysqli->close();
 ?>
