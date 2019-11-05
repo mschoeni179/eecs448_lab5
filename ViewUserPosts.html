@@ -15,21 +15,15 @@
         printf("Connect failed: %s\n", $mysqli->connect_error);
         exit();
         }
-    $data = "SELECT userID FROM Users;";
-    $result = $mysqli->query($data);
-    if ($result)
-    {
-        while($row = $result->fetch_assoc())
+    $data = "SELECT userID FROM Users";
+
+        if ($result = $mysqli->query($data))
         {
-            echo '<option value="'.$row[userID].'">'.$row[userID].'</option>';
+            while ($row = $result->fetch_assoc())
+            {
+              echo '<option value="'. $row[userID].'">'. $row[userID].'</option>';
+            }
         }
-    }
-    else
-    {
-        echo "No user found";
-    }
-    $result->free();
-    $mysqli->close();
     ?>
     </select>
 
