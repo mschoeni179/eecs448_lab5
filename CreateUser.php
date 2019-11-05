@@ -23,7 +23,7 @@ if ($result->num_rows >0)
             $flag = true;
         }
   }
-  if (!$flag)
+  if ($flag === FALSE)
   {
     $sql = "INSERT INTO Users (userID) VALUES ($user)";
     if ($mysqli->query($sql) === TRUE)
